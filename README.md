@@ -1,7 +1,7 @@
 # NEWS-PORTAL API
 
 ## Author
-*Juliet Kemunto Gisemba
+Juliet Kemunto Gisemba
 
 ### Description
 This is an Organizational Rest API that queries and retrieves scoped news and information within an organization.
