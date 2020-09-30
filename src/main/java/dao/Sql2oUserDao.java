@@ -1,10 +1,15 @@
 package dao;
+import models.News;
+import models.User;
 
-import java.sql2o.Connection;
 import java.util.ArrayList;
 import java.util.List;
+import org.sql2o.Sql2o;
+import org.sql2o.Connection;
+import org.sql2o.Sql2oException;
 
-public class Sql2oUserDao {
+public class Sql2oUserDao implements UserDao{
+
     private final Sql2o sql2o;
 
     public Sql2oUserDao(Sql2o sql2o) {
