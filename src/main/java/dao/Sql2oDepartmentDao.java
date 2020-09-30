@@ -9,6 +9,7 @@ import java.util.List;
 
 
 public class Sql2oDepartmentDao implements DepartmentDao {
+
     private final Sql2o sql2o;
     public Sql2oDepartmentDao(Sql2o sql2o) {
         this.sql2o = sql2o;
@@ -16,7 +17,7 @@ public class Sql2oDepartmentDao implements DepartmentDao {
 
     @Override
     public void add(Department department) {
-        String sql = "INSERT INTO departments(departmentName, departmentDescription, departmentEmployeesNumber) VALUES (:departmentName, :departmentDescription, :departmentEmployeesNumber)";
+        String sql = "INSERT INTO departments(name, description, employeesNumber) VALUES (:name, :description, :employeesNumber)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
                     .bind(department)
@@ -91,13 +92,12 @@ public class Sql2oDepartmentDao implements DepartmentDao {
     }
 
     @Override
-    public void update(int id, String newDepartmentName, String newDepartmentDescription, int newDepartmentEmployeesNumber) {
-        String sql = "UPDATE departments SET (departmentName, departmentDescription, departmentEmployeesNumber) = (:departmentName, :departmentDescription, :departmentEmployeesNumber) WHERE id=:id"; //CHECK!!!
-        try (Connection con = sql2o.open()) {
+    public void update(int id, String newName, String newDescription, int newEmployeesNumber) {
+        String sql = "UPDATE departments SET (name, description, employeesNumber) = (:name, :description, :employeesNumber) WHERE id=:id";        try (Connection con = sql2o.open()) {
             con.createQuery(sql)
-                    .addParameter("departmentName", newDepartmentName)
-                    .addParameter("departmentDescription", newDepartmentDescription)
-                    .addParameter("departmentEmployeesNumber", newDepartmentEmployeesNumber)
+                    .addParameter("name", newName)
+                    .addParameter("description", newDescription)
+                    .addParameter("employeesNumber", newEmployeesNumber)
                     .addParameter("id", id)
                     .executeUpdate();
         } catch (Sql2oException ex) {

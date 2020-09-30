@@ -18,7 +18,7 @@ public class Sql2oUserDao implements UserDao{
 
     @Override
     public void add(User user) {
-        String sql = "INSERT INTO users (userName, userCompanyPosition, userCompanyRole, departmentId) VALUES (:userName, :userCompanyPosition, :userCompanyRole, :departmentId)";
+        String sql = "INSERT INTO users (name, companyPosition, role, departmentId) VALUES (:name, :companyPosition, :role, :departmentId)";
         try(Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql, true)
                     .bind(user)
@@ -58,13 +58,13 @@ public class Sql2oUserDao implements UserDao{
     }
 
     @Override
-    public void update(int id, String newUserName, String newUserCompanyPosition, String newUserCompanyRole, int departmentId) {
-        String sql = "UPDATE users SET (userName, userCompanyPosition, userCompanyRole, departmentId) = (:userName, :userCompanyPosition, :userCompanyRole, :departmentId) WHERE id=:id"; //CHECK!!!
+    public void update(int id, String newName, String newCompanyPosition, String newRole, int departmentId) {
+        String sql = "UPDATE users SET (name, companyPosition, role, departmentId) = (:name, :companyPosition, :role, :departmentId) WHERE id=:id";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
-                    .addParameter("userName", newUserName)
-                    .addParameter("userCompanyPosition", newUserCompanyPosition)
-                    .addParameter("userCompanyRole", newUserCompanyRole)
+                    .addParameter("name", newName)
+                    .addParameter("companyPosition", newCompanyPosition)
+                    .addParameter("role", newRole)
                     .addParameter("departmentId", departmentId)
                     .addParameter("id", id)
                     .executeUpdate();

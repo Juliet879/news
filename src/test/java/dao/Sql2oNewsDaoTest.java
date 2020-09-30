@@ -19,8 +19,8 @@ public class Sql2oNewsDaoTest {
     public static void setUp() throws Exception {
 //        String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
 //        Sql2o sql2o = new Sql2o(connectionString, "", "");
-        String connectionString = "jdbc:postgresql://localhost:5432/myorg_test";
-        Sql2o sql2o = new Sql2o(connectionString, "moringa", "Jkg25879");
+        String connectionString = "jdbc:postgresql://localhost:5432/my_news_test";
+        Sql2o sql2o = new Sql2o(connectionString, "moringa", "julietgisemba123");
         departmentsDao = new Sql2oDepartmentDao(sql2o);
         newsDao = new Sql2oNewsDao(sql2o);
         usersDao = new Sql2oUserDao(sql2o);
@@ -92,8 +92,8 @@ public class Sql2oNewsDaoTest {
         News testAltNews = setUpAltNews();
         newsDao.update(testAltNews.getId(), "mango", "farming is fine", 12);
         News foundNews = newsDao.findById(testAltNews.getId());
-        assertEquals("mango", foundNews.getNewsTitle());
-        assertEquals("farming is fine", foundNews.getNewsContent());
+        assertEquals("mango", foundNews.getTitle());
+        assertEquals("farming is fine", foundNews.getContent());
         assertEquals(12, foundNews.getDepartmentId());
     }
 

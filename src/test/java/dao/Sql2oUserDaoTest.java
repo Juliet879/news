@@ -17,8 +17,8 @@ public class Sql2oUserDaoTest {
     public static void setUp() throws Exception {
 //        String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
 //        Sql2o sql2o = new Sql2o(connectionString, "", "");
-        String connectionString = "jdbc:postgresql://localhost:5432/myorg_test";
-        Sql2o sql2o = new Sql2o(connectionString, "moringa", "Jkg25879");
+        String connectionString = "jdbc:postgresql://localhost:5432/my_news_test";
+        Sql2o sql2o = new Sql2o(connectionString, "moringa", "julietgisemba123");
         departmentDao = new Sql2oDepartmentDao(sql2o);
         newsDao = new Sql2oNewsDao(sql2o);
         userDao = new Sql2oUserDao(sql2o);
@@ -34,7 +34,7 @@ public class Sql2oUserDaoTest {
 //        conn.close();
     }
 
-    @AfterClass     //changed to @AfterClass (run once after all tests in this file completed)
+    @AfterClass
     public static void shutDown() throws Exception{ //changed to static
         conn.close(); // close connection once after this entire test file is finished
         System.out.println("connection closed");
@@ -88,9 +88,9 @@ public class Sql2oUserDaoTest {
         User testUser = setUpUser();
         userDao.update(testUser.getId(), "Hampton", "Banker", "Teller", 20);
         User findUser = userDao.findUserById(testUser.getId());
-        assertEquals("Hampton", findUser.getUserName());
-        assertEquals("Banker", findUser.getUserCompanyPosition());
-        assertEquals("Teller", findUser.getUserCompanyRole());
+        assertEquals("Hampton", findUser.getName());
+        assertEquals("Banker", findUser.getCompanyPosition());
+        assertEquals("Teller", findUser.getRole());
         assertEquals(20, findUser.getDepartmentId());
     }
 

@@ -17,7 +17,7 @@ public interface NewsDao {
     //
 
     //update
-    void update(int id, String newsTitle, String newsContent,int departmentId);
+    void update(int id, String title, String content,int departmentId);
 
     //delete
     void deleteById(int id);

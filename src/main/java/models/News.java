@@ -3,40 +3,40 @@ package models;
 import java.util.Objects;
 
 public class News {
-    private String newsTitle;
-    private String newsContent;
+    private String title;
+    private String content;
     private int departmentId;
     private int id;
 
     //News Constructor method signature for general news(org-wide news)
-    public News(String newsTitle, String newsContent){
-        this.newsTitle = newsTitle;
-        this.newsContent = newsContent;
+    public News(String title, String content){
+        this.title = title;
+        this.content = content;
         this.departmentId = 0;
     }
 
     //News Constructor method signature for departmental news(departmental news)
-    public News(String newsTitle, String newsContent, int departmentId){
-        this.newsContent = newsContent;
-        this.newsTitle = newsTitle;
+    public News(String title, String content, int departmentId){
+        this.content = content;
+        this.title = title;
         this.departmentId = departmentId;
     }
 
-
-    public String getNewsTitle() {
-        return newsTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setNewsTitle(String newsTitle) {
-        this.newsTitle = newsTitle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getNewsContent() {
-        return newsContent;
+
+    public String getContent() {
+        return content;
     }
 
-    public void setNewsContent(String newsContent) {
-        this.newsContent = newsContent;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public int getDepartmentId() {
@@ -62,13 +62,13 @@ public class News {
         News news = (News) o;
         return getDepartmentId() == news.getDepartmentId() &&
                 getId() == news.getId() &&
-                Objects.equals(getNewsTitle(), news.getNewsTitle()) &&
-                Objects.equals(getNewsContent(), news.getNewsContent());
+                Objects.equals(getTitle(), news.getTitle()) &&
+                Objects.equals(getContent(), news.getContent());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNewsTitle(), getNewsContent(), getDepartmentId(), getId());
+        return Objects.hash(getTitle(), getContent(), getDepartmentId(), getId());
     }
 
 

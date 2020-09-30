@@ -4,44 +4,45 @@ import java.util.Objects;
 
 public class User {
 
-    private String userName;
-    private String userCompanyPosition;
-    private String userCompanyRole;
+    private String name;
+    private String companyPosition;
+    private String role;
     private  int departmentId;
     private int id;
 
     //User Constructor
-    public User(String userName, String userCompanyPosition, String userCompanyRole, int departmentId){
-        this.userName = userName;
-        this.userCompanyPosition = userCompanyPosition;
-        this.userCompanyRole = userCompanyRole;
+    public User(String name, String companyPosition, String role, int departmentId){
+        this.name = name;
+        this.companyPosition = companyPosition;
+        this.role = role;
         this.departmentId = departmentId;
 
     }
 
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getUserCompanyPosition() {
-        return userCompanyPosition;
+    public String getCompanyPosition() {
+        return companyPosition;
     }
 
-    public void setUserCompanyPosition(String userCompanyPosition) {
-        this.userCompanyPosition = userCompanyPosition;
+    public void setCompanyPosition(String companyPosition) {
+        this.companyPosition = companyPosition;
     }
 
-    public String getUserCompanyRole() {
-        return userCompanyRole;
+    public String getRole() {
+        return role;
     }
 
-    public void setUserCompanyRole(String userCompanyRole) {
-        this.userCompanyRole = userCompanyRole;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public int getDepartmentId() {
@@ -67,14 +68,14 @@ public class User {
         User user = (User) o;
         return getDepartmentId() == user.getDepartmentId() &&
                 getId() == user.getId() &&
-                Objects.equals(getUserName(), user.getUserName()) &&
-                Objects.equals(getUserCompanyPosition(), user.getUserCompanyPosition()) &&
-                Objects.equals(getUserCompanyRole(), user.getUserCompanyRole());
+                Objects.equals(getName(), user.getName()) &&
+                Objects.equals(getCompanyPosition(), user.getCompanyPosition()) &&
+                Objects.equals(getRole(), user.getRole());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getUserName(), getUserCompanyPosition(), getUserCompanyRole(), getDepartmentId(), getId());
+        return Objects.hash(getName(), getCompanyPosition(), getRole(), getDepartmentId(), getId());
     }
 
 

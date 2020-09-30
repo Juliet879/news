@@ -15,6 +15,6 @@ dependencies {
     compile 'org.slf4j:slf4j-simple:1.7.21'
     compile group: 'org.sql2o', name: 'sql2o', version: '1.5.4'
     compile 'com.google.code.gson:gson:2.5'
-    compile group: 'com.h2database', name: 'h2', version: '1.4.191'         //remove after switch to postgresql
-    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.9' // ADD ME FOR POSTGRES VERSION 9.x
+    compile group: 'com.h2database', name: 'h2', version: '1.4.191'
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.9'
 }

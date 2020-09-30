@@ -3,6 +3,7 @@ import models.*;
 import java.util.List;
 
 public interface DepartmentDao {
+
     //create
     void add(Department department);
     void addDepartmentToUser(Department department, User user);
@@ -13,8 +14,10 @@ public interface DepartmentDao {
     List<User> getAllUsersByDepartment(int departmentId);
 
     //update
-    void update(int id, String departmentName, String departmentDescription, int departmentEmployeesNumber);
+    void update(int id, String name, String description, int employeesNumber);
 
     //delete
     void deleteById(int id);
-    void clearAll();}
+    void clearAll();
+
+}
