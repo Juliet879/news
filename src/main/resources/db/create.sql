@@ -24,6 +24,11 @@ id SERIAL PRIMARY KEY,
   departmentId INTEGER
 );
 
+CREATE TABLE IF NOT EXISTS departments_users (
+id SERIAL PRIMARY KEY,
+departmentId INTEGER,
+userId INTEGER
+);
 
 CREATE TABLE IF NOT EXISTS departments_news(
 id SERIAL PRIMARY KEY,
