@@ -66,10 +66,5 @@ public class News {
                 Objects.equals(getContent(), news.getContent());
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getTitle(), getContent(), getDepartmentId(), getId());
-    }
-
 
 }

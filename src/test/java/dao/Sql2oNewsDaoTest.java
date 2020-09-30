@@ -4,7 +4,6 @@ import models.News;
 import org.junit.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
-import java.util.Arrays;
 import static org.junit.Assert.assertEquals;
 
 
@@ -33,7 +32,6 @@ public class Sql2oNewsDaoTest {
         departmentsDao.clearAll();
         newsDao.clearAll();
         usersDao.clearAll();
-//        conn.close();
     }
 
     @AfterClass     //changed to @AfterClass (run once after all tests in this file completed)
